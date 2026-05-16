@@ -2,11 +2,13 @@
 export default function Classes() {
   return (
     <>
-      <section className="page-section" style={{ paddingTop: '150px' }}>
-        <div className="section-header">
-          <h2>Class Schedule & Shifts</h2>
-          <p>Find the perfect time to elevate your training.</p>
-        </div>
+      <div className="classes-hero">
+        <div className="overlay"></div>
+        <section className="page-section" style={{ paddingTop: '150px', position: 'relative', zIndex: 2 }}>
+          <div className="section-header">
+            <h2>Class Schedule & Shifts</h2>
+            <p>Find the perfect time to elevate your training.</p>
+          </div>
         
         <div className="schedule-container">
           <div className="shift-block">
@@ -38,6 +40,7 @@ export default function Classes() {
           </div>
         </div>
       </section>
+      </div>
 
       <section className="page-section" style={{ backgroundColor: 'var(--secondary)' }}>
         <div className="section-header">
@@ -67,6 +70,20 @@ export default function Classes() {
       </section>
 
       <style jsx>{`
+        .classes-hero {
+          position: relative;
+          min-height: 100vh;
+          background: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2000') center/cover fixed;
+        }
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(5,5,8,0.9), rgba(10,13,20,0.95));
+          z-index: 1;
+        }
         .schedule-container {
           max-width: 1000px;
           margin: 0 auto;

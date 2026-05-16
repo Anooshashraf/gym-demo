@@ -2,11 +2,14 @@
 
 export default function Contact() {
   return (
-    <section className="page-section" style={{ paddingTop: '150px' }}>
-      <div className="section-header">
-        <h2>Get In Touch</h2>
-        <p>Ready to start? We're here to answer any questions.</p>
-      </div>
+    <>
+      <div className="contact-hero">
+        <div className="overlay"></div>
+        <section className="page-section" style={{ paddingTop: '150px', position: 'relative', zIndex: 2 }}>
+          <div className="section-header">
+            <h2>Get In Touch</h2>
+            <p>Ready to start? We're here to answer any questions.</p>
+          </div>
 
       <div className="contact-wrapper">
         <div className="contact-info">
@@ -42,8 +45,24 @@ export default function Contact() {
           </form>
         </div>
       </div>
+      </section>
+    </div>
 
       <style jsx>{`
+        .contact-hero {
+          position: relative;
+          min-height: 100vh;
+          background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000') center/cover fixed;
+        }
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, rgba(5,5,8,0.9), rgba(10,13,20,0.95));
+          z-index: 1;
+        }
         .contact-wrapper {
           display: flex;
           max-width: 1200px;
@@ -100,6 +119,6 @@ export default function Contact() {
           .contact-wrapper { flex-direction: column; }
         }
       `}</style>
-    </section>
+    </>
   );
 }

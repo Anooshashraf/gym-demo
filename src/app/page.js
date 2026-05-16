@@ -12,34 +12,36 @@ export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    // The specific scroll animation requested
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top top',
-        end: '+=150%', // Pin for 1.5x the viewport height
-        pin: true,
-        scrub: 1, // Smooth scrubbing
-      }
+    let ctx = gsap.context(() => {
+      // The specific scroll animation requested
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: '+=150%', // Pin for 1.5x the viewport height
+          pin: true,
+          scrub: 1, // Smooth scrubbing
+        }
+      });
+
+      // Animate runner to the right and fade out
+      tl.to(runnerRef.current, {
+        x: '150vw', // Move completely off screen to the right
+        opacity: 0,
+        duration: 2,
+        ease: 'power1.inOut'
+      }, 0); // start at time 0
+
+      // Animate text from the left to the center
+      tl.fromTo(textRef.current, 
+        { x: '-100vw', opacity: 0 },
+        { x: '0', opacity: 1, duration: 2, ease: 'power1.out' },
+        0.5 // start slightly after the runner starts moving
+      );
     });
 
-    // Animate runner to the right and fade out
-    tl.to(runnerRef.current, {
-      x: '150vw', // Move completely off screen to the right
-      opacity: 0,
-      duration: 2,
-      ease: 'power1.inOut'
-    }, 0); // start at time 0
-
-    // Animate text from the left to the center
-    tl.fromTo(textRef.current, 
-      { x: '-100vw', opacity: 0 },
-      { x: '0', opacity: 1, duration: 2, ease: 'power1.out' },
-      0.5 // start slightly after the runner starts moving
-    );
-
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ctx.revert();
     };
   }, []);
 

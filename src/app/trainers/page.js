@@ -37,7 +37,7 @@ export default function Trainers() {
       <div className="trainers-grid">
         {trainers.map((t, idx) => (
           <div key={idx} className="trainer-card">
-            <div className="trainer-img" style={{ backgroundImage: `url(\${t.img})` }}></div>
+            <div className="trainer-img" style={{ backgroundImage: `url(${t.img})` }}></div>
             <div className="trainer-info">
               <h3>{t.name}</h3>
               <span className="specialty">{t.specialty}</span>
