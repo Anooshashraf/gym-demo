@@ -971,11 +971,7 @@ function Hero() {
         ))}
       </div>
 
-      {/* Scroll indicator */}
-      <div ref={scrollIndicatorRef} className="scroll-indicator" aria-hidden="true">
-        <span>SCROLL</span>
-        <div className="scroll-line"><div className="scroll-dot" /></div>
-      </div>
+      
 
       <style jsx>{`
         .hero-section {
