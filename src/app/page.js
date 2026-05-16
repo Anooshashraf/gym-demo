@@ -24,9 +24,10 @@ export default function Home() {
         }
       });
 
+      // Initially runner is in center, text is offscreen left
       // Animate runner to the right and fade out
       tl.to(runnerRef.current, {
-        x: '150vw', // Move completely off screen to the right
+        x: '100vw', // Move completely off screen to the right
         opacity: 0,
         duration: 2,
         ease: 'power1.inOut'
@@ -50,25 +51,23 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={heroRef} className="hero-section">
         <div className="hero-background">
-           <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2000&auto=format&fit=crop" alt="Gym Background" className="bg-img" />
+           <img src="/gym-bg.png" alt="Luxury Gym Background" className="bg-img" />
            <div className="overlay"></div>
         </div>
         
-        {/* The Running Man Video/GIF */}
+        {/* The Hero Text (Layered BEHIND the runner) */}
+        <div ref={textRef} className="hero-text-container">
+          <h1 className="hero-title">PREMIER<br/>FITNESS</h1>
+        </div>
+
+        {/* The Running Man (Layered IN FRONT of the text) */}
         <div ref={runnerRef} className="runner-container">
-          {/* Using a generated static image of a runner silhouette */}
           <img 
             src="/runner.png" 
             alt="Running Man" 
             className="runner-gif"
-            style={{ mixBlendMode: 'screen' }}
+            style={{ mixBlendMode: 'screen', filter: 'brightness(1.5) drop-shadow(0 0 20px rgba(0,229,255,0.5))' }}
           />
-        </div>
-
-        {/* The Hero Text */}
-        <div ref={textRef} className="hero-text-container">
-          <h1 className="hero-title">ACHIEVE<br/>GREATNESS</h1>
-          <p className="hero-subtitle">Where Iron Meets Innovation</p>
         </div>
       </section>
 
@@ -122,6 +121,72 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trainers Preview Section */}
+      <section className="trainers-preview page-section">
+        <div className="section-header">
+          <h2>World-Class Coaches</h2>
+          <p>Learn from industry veterans dedicated to your success.</p>
+        </div>
+        <div className="cards-grid" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="card">
+            <div className="card-image" style={{ height: '300px', background: 'url(https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800) center/cover' }}></div>
+            <div className="card-content">
+              <h3>Alex Sterling</h3>
+              <p style={{ color: 'var(--primary)', marginBottom: '10px' }}>Head Coach & Strength</p>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-image" style={{ height: '300px', background: 'url(https://images.unsplash.com/photo-1611564494260-5f21ea5faa64?q=80&w=800) center/cover' }}></div>
+            <div className="card-content">
+              <h3>Sarah Jenkins</h3>
+              <p style={{ color: 'var(--primary)', marginBottom: '10px' }}>HIIT & Conditioning</p>
+            </div>
+          </div>
+          <div className="card">
+            <div className="card-image" style={{ height: '300px', background: 'url(https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=800) center/cover' }}></div>
+            <div className="card-content">
+              <h3>Mike Chen</h3>
+              <p style={{ color: 'var(--primary)', marginBottom: '10px' }}>Mobility & Yoga</p>
+            </div>
+          </div>
+        </div>
+        <div style={{ textAlign: 'center', marginTop: '40px' }}>
+          <a href="/trainers" className="btn-secondary" style={{ display: 'inline-block', padding: '15px 30px', border: '1px solid var(--primary)', color: 'var(--primary)', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '1px' }}>View All Trainers</a>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section className="pricing-section page-section" style={{ backgroundColor: 'var(--bg-dark)' }}>
+        <div className="section-header">
+          <h2>Membership Plans</h2>
+          <p>Choose the tier that fits your ambition.</p>
+        </div>
+        <div className="cards-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div className="card" style={{ padding: '40px', background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Standard</h3>
+            <h2 style={{ fontSize: '3rem', color: 'var(--primary)', marginBottom: '20px' }}>$49<span style={{ fontSize: '1rem', color: 'var(--text-gray)' }}>/mo</span></h2>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 30px 0', color: 'var(--text-gray)', lineHeight: '2' }}>
+              <li>Full Gym Access</li>
+              <li>Locker Room Access</li>
+              <li>1 Free Assessment</li>
+            </ul>
+            <button className="btn-secondary" style={{ width: '100%', padding: '15px', background: 'transparent', border: '1px solid white', color: 'white' }}>Select Plan</button>
+          </div>
+          <div className="card" style={{ padding: '40px', background: 'linear-gradient(145deg, rgba(0,229,255,0.1), rgba(0,0,0,0))', border: '1px solid var(--primary)', textAlign: 'center', transform: 'scale(1.05)', zIndex: 1 }}>
+            <div style={{ background: 'var(--primary)', color: 'black', padding: '5px 10px', fontSize: '0.8rem', fontWeight: 'bold', display: 'inline-block', marginBottom: '15px', borderRadius: '4px' }}>MOST POPULAR</div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Premium</h3>
+            <h2 style={{ fontSize: '3rem', color: 'var(--text-white)', marginBottom: '20px' }}>$89<span style={{ fontSize: '1rem', color: 'var(--text-gray)' }}>/mo</span></h2>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 30px 0', color: 'var(--text-white)', lineHeight: '2' }}>
+              <li>Everything in Standard</li>
+              <li>Unlimited Classes</li>
+              <li>Sauna & Spa Access</li>
+              <li>Monthly Body Scan</li>
+            </ul>
+            <button className="btn-primary" style={{ width: '100%', padding: '15px' }}>Select Plan</button>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="testimonials-section page-section" style={{ backgroundColor: 'var(--secondary)' }}>
         <div className="section-header">
@@ -145,10 +210,10 @@ export default function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="cta-section page-section" style={{ textAlign: 'center', minHeight: '60vh' }}>
-        <h2 style={{ fontSize: '4rem', fontWeight: 900, marginBottom: '20px' }}>READY TO <span style={{ color: 'var(--primary)' }}>COMMIT?</span></h2>
+      <section className="cta-section page-section" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <h2 style={{ fontSize: '3.5rem', fontWeight: 900, marginBottom: '20px' }}>READY TO <span style={{ color: 'var(--primary)' }}>COMMIT?</span></h2>
         <p style={{ color: 'var(--text-gray)', fontSize: '1.2rem', marginBottom: '40px' }}>Join the elite. Start your transformation today.</p>
-        <button className="btn-primary" style={{ padding: '20px 40px', fontSize: '1.2rem' }}>Start Your Journey</button>
+        <button className="btn-primary" style={{ display: 'inline-block', width: 'auto', minWidth: '200px', padding: '15px 40px', fontSize: '1.1rem' }}>Start Your Journey</button>
       </section>
 
       <style jsx>{`
@@ -176,7 +241,7 @@ export default function Home() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          opacity: 0.4;
+          opacity: 0.6;
         }
 
         .overlay {
@@ -188,13 +253,35 @@ export default function Home() {
           background: linear-gradient(to bottom, transparent, var(--bg-start));
         }
 
-        .runner-container {
+        .hero-text-container {
           position: absolute;
           z-index: 2;
-          /* Start position of the runner (left/center) */
-          left: 20%;
-          bottom: 10%;
-          height: 60vh;
+          width: 100%;
+          text-align: center;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        .hero-title {
+          font-size: clamp(4rem, 10vw, 10rem);
+          font-weight: 900;
+          line-height: 0.85;
+          letter-spacing: -2px;
+          text-transform: uppercase;
+          background: linear-gradient(to bottom, #ffffff 20%, #7a8b99 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          filter: drop-shadow(0 20px 30px rgba(0,0,0,0.8));
+          margin: 0;
+        }
+
+        .runner-container {
+          position: absolute;
+          z-index: 3;
+          left: 50%;
+          bottom: 0%;
+          transform: translateX(-50%);
+          height: 85vh;
           pointer-events: none;
         }
 
@@ -202,30 +289,6 @@ export default function Home() {
           height: 100%;
           width: auto;
           object-fit: contain;
-        }
-
-        .hero-text-container {
-          position: relative;
-          z-index: 3;
-          text-align: center;
-        }
-
-        .hero-title {
-          font-size: 6rem;
-          font-weight: 900;
-          line-height: 1.1;
-          margin-bottom: 20px;
-          letter-spacing: -2px;
-          color: var(--text-white);
-          text-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        .hero-subtitle {
-          font-size: 1.5rem;
-          font-weight: 300;
-          color: var(--primary);
-          letter-spacing: 4px;
-          text-transform: uppercase;
         }
 
         .stat-container {
