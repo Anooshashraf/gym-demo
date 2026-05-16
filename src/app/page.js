@@ -1841,6 +1841,153 @@ function TrainersSection() {
 }
 
 /* ─── Pricing Section ─────────────────────────────────── */
+// function PricingSection() {
+//   return (
+//     <section className="page-section pricing-section">
+//       <div className="section-header reveal">
+//         <span className="section-label">Membership</span>
+//         <h2>CHOOSE YOUR<br/>TIER</h2>
+//         <p>Invest in excellence. Cancel anytime.</p>
+//       </div>
+
+//       <div className="pricing-grid">
+//         <div className="pricing-card reveal reveal-delay-1">
+//           <div className="pricing-card-header">
+//             <span className="pricing-tier">Standard</span>
+//             <div className="pricing-price"><span className="pricing-num">$49</span><span className="pricing-per">/mo</span></div>
+//           </div>
+//           <ul className="pricing-features">
+//             <li>Full Gym Access</li>
+//             <li>Locker Room</li>
+//             <li>1 Free Assessment</li>
+//             <li>App Access</li>
+//           </ul>
+//           <button className="btn-outline" style={{ width: '100%', padding: '16px', textAlign: 'center' }}>Select Plan</button>
+//         </div>
+
+//         <div className="pricing-card pricing-card--featured reveal reveal-delay-2">
+//           <div className="pricing-badge">MOST POPULAR</div>
+//           <div className="pricing-card-header">
+//             <span className="pricing-tier">Premium</span>
+//             <div className="pricing-price"><span className="pricing-num pricing-num--white">$89</span><span className="pricing-per">/mo</span></div>
+//           </div>
+//           <ul className="pricing-features">
+//             <li>Everything in Standard</li>
+//             <li>Unlimited Classes</li>
+//             <li>Sauna & Spa Access</li>
+//             <li>Monthly Body Scan</li>
+//             <li>Priority Booking</li>
+//           </ul>
+//           <button className="btn-primary" style={{ width: '100%', padding: '16px' }}>Select Plan</button>
+//         </div>
+//       </div>
+
+//       <style jsx>{`
+//         .pricing-section {
+//           background: var(--bg-end);
+//           border-top: 1px solid rgba(255,255,255,0.04);
+//         }
+//         .pricing-grid {
+//           display: flex;
+//           gap: 2px;
+//           max-width: 900px;
+//           margin: 0 auto;
+//         }
+//         .pricing-card {
+//           flex: 1;
+//           padding: 52px 44px;
+//           background: rgba(255,255,255,0.02);
+//           border: 1px solid rgba(255,255,255,0.07);
+//           display: flex;
+//           flex-direction: column;
+//           gap: 32px;
+//           position: relative;
+//           transition: all 0.4s ease;
+//         }
+//         .pricing-card:hover {
+//           background: rgba(255,255,255,0.035);
+//         }
+//         .pricing-card--featured {
+//           background: rgba(200,245,66,0.04);
+//           border-color: rgba(200,245,66,0.25);
+//         }
+//         .pricing-card--featured:hover {
+//           background: rgba(200,245,66,0.06);
+//         }
+//         .pricing-badge {
+//           position: absolute;
+//           top: -1px; left: 50%;
+//           transform: translateX(-50%);
+//           background: var(--primary);
+//           color: #000;
+//           font-family: var(--font-body);
+//           font-size: 0.65rem;
+//           font-weight: 800;
+//           letter-spacing: 3px;
+//           padding: 5px 18px;
+//         }
+//         .pricing-card-header {}
+//         .pricing-tier {
+//           display: block;
+//           font-family: var(--font-body);
+//           font-size: 0.72rem;
+//           font-weight: 700;
+//           letter-spacing: 4px;
+//           text-transform: uppercase;
+//           color: var(--text-gray);
+//           margin-bottom: 12px;
+//         }
+//         .pricing-price {
+//           display: flex;
+//           align-items: baseline;
+//           gap: 4px;
+//         }
+//         .pricing-num {
+//           font-family: var(--font-display);
+//           font-size: 4.5rem;
+//           letter-spacing: 2px;
+//           color: var(--primary);
+//           line-height: 1;
+//         }
+//         .pricing-num--white {
+//           color: var(--text-white);
+//         }
+//         .pricing-per {
+//           font-size: 0.9rem;
+//           color: var(--text-gray);
+//           font-weight: 300;
+//         }
+//         .pricing-features {
+//           list-style: none;
+//           flex: 1;
+//           display: flex;
+//           flex-direction: column;
+//           gap: 14px;
+//         }
+//         .pricing-features li {
+//           font-size: 0.9rem;
+//           color: var(--text-gray);
+//           font-weight: 300;
+//           padding-left: 20px;
+//           position: relative;
+//         }
+//         .pricing-features li::before {
+//           content: '—';
+//           position: absolute;
+//           left: 0;
+//           color: var(--primary);
+//           font-size: 0.8rem;
+//         }
+//         @media (max-width: 640px) {
+//           .pricing-grid { flex-direction: column; }
+//         }
+//       `}</style>
+//     </section>
+//   );
+// }
+
+
+
 function PricingSection() {
   return (
     <section className="page-section pricing-section">
@@ -1880,6 +2027,24 @@ function PricingSection() {
           </ul>
           <button className="btn-primary" style={{ width: '100%', padding: '16px' }}>Select Plan</button>
         </div>
+
+        <div className="pricing-card pricing-card--elite reveal reveal-delay-3">
+          <div className="pricing-badge pricing-badge--elite">ELITE</div>
+          <div className="pricing-card-header">
+            <span className="pricing-tier">Elite</span>
+            <div className="pricing-price"><span className="pricing-num pricing-num--accent">$119</span><span className="pricing-per">/mo</span></div>
+          </div>
+          <ul className="pricing-features">
+            <li>Everything in Premium</li>
+            <li>Personal Trainer (2x/week)</li>
+            <li>Nutrition Planning</li>
+            <li>Weekly Body Scan</li>
+            <li>VIP Locker</li>
+            <li>Guest Passes (4/mo)</li>
+            <li>Exclusive Events</li>
+          </ul>
+          <button className="btn-primary btn-primary--elite" style={{ width: '100%', padding: '16px' }}>Select Plan</button>
+        </div>
       </div>
 
       <style jsx>{`
@@ -1890,7 +2055,7 @@ function PricingSection() {
         .pricing-grid {
           display: flex;
           gap: 2px;
-          max-width: 900px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .pricing-card {
@@ -1906,6 +2071,7 @@ function PricingSection() {
         }
         .pricing-card:hover {
           background: rgba(255,255,255,0.035);
+          transform: translateY(-4px);
         }
         .pricing-card--featured {
           background: rgba(200,245,66,0.04);
@@ -1913,6 +2079,14 @@ function PricingSection() {
         }
         .pricing-card--featured:hover {
           background: rgba(200,245,66,0.06);
+        }
+        .pricing-card--elite {
+          background: rgba(200,245,66,0.02);
+          border-color: rgba(200,245,66,0.15);
+        }
+        .pricing-card--elite:hover {
+          background: rgba(200,245,66,0.04);
+          border-color: rgba(200,245,66,0.3);
         }
         .pricing-badge {
           position: absolute;
@@ -1925,6 +2099,12 @@ function PricingSection() {
           font-weight: 800;
           letter-spacing: 3px;
           padding: 5px 18px;
+          white-space: nowrap;
+        }
+        .pricing-badge--elite {
+          background: linear-gradient(135deg, var(--primary) 0%, #f0c445 100%);
+          color: #000;
+          letter-spacing: 4px;
         }
         .pricing-card-header {}
         .pricing-tier {
@@ -1952,6 +2132,12 @@ function PricingSection() {
         .pricing-num--white {
           color: var(--text-white);
         }
+        .pricing-num--accent {
+          background: linear-gradient(135deg, var(--primary) 0%, #f0c445 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
         .pricing-per {
           font-size: 0.9rem;
           color: var(--text-gray);
@@ -1978,8 +2164,66 @@ function PricingSection() {
           color: var(--primary);
           font-size: 0.8rem;
         }
+        .btn-primary--elite {
+          background: linear-gradient(135deg, var(--primary) 0%, #f0c445 100%);
+          border: none;
+          color: #000;
+          font-weight: 800;
+        }
+        .btn-primary--elite:hover {
+          opacity: 0.9;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(200,245,66,0.3);
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+          .pricing-grid {
+            max-width: 900px;
+            flex-wrap: wrap;
+          }
+          .pricing-card {
+            flex: 1 1 calc(50% - 2px);
+            min-width: 280px;
+          }
+          .pricing-card--elite {
+            flex: 1 1 100%;
+          }
+          .pricing-num {
+            font-size: 3.5rem;
+          }
+        }
+
+        /* Mobile */
         @media (max-width: 640px) {
-          .pricing-grid { flex-direction: column; }
+          .pricing-grid { 
+            flex-direction: column; 
+            max-width: 400px;
+          }
+          .pricing-card {
+            padding: 40px 32px;
+            gap: 24px;
+          }
+          .pricing-num {
+            font-size: 3rem;
+          }
+          .pricing-features {
+            gap: 12px;
+          }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 400px) {
+          .pricing-card {
+            padding: 32px 24px;
+          }
+          .pricing-num {
+            font-size: 2.5rem;
+          }
+          .pricing-badge {
+            font-size: 0.6rem;
+            padding: 4px 14px;
+          }
         }
       `}</style>
     </section>
