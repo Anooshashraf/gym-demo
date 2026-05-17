@@ -169,8 +169,8 @@ export default function RootLayout({ children }) {
               PREMIER <span>FITNESS</span>
             </Link>
             <ul className="nav-links">
-              {['/', '/about', '/classes', '/trainers', '/services', '/contact'].map((href, i) => {
-                const labels = ['Home', 'About', 'Classes', 'Trainers', 'Services', 'Contact'];
+              {['/', '/about', '/classes', '/trainers', '/services', '/equipments','/contact'].map((href, i) => {
+                const labels = ['Home', 'About', 'Classes', 'Trainers', 'Services', 'Equipments', 'Contact'];
                 return (
                   <li key={href}>
                     <Link href={href} className={pathname === href ? 'active' : ''}>{labels[i]}</Link>
