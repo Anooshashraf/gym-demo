@@ -1,129 +1,3 @@
-// 'use client';
-
-// export default function Contact() {
-//   return (
-//     <>
-//       <div className="contact-hero">
-//         <div className="overlay"></div>
-//         <section className="page-section" style={{ paddingTop: '150px', position: 'relative', zIndex: 2 }}>
-//           <div className="section-header">
-//             <h2>Get In Touch</h2>
-//             <p>Ready to start? We're here to answer any questions.</p>
-//           </div>
-
-//       <div className="contact-wrapper">
-//         <div className="contact-info">
-//           <div className="info-block">
-//             <h3>Location</h3>
-//             <p>123 Fitness Boulevard<br/>Downtown Core, NY 10001</p>
-//           </div>
-//           <div className="info-block">
-//             <h3>Hours</h3>
-//             <p>Mon-Fri: 5:00 AM - 11:00 PM<br/>Sat-Sun: 6:00 AM - 9:00 PM</p>
-//           </div>
-//           <div className="info-block">
-//             <h3>Contact Details</h3>
-//             <p>Phone: (555) 123-4567<br/>Email: join@premierfitness.com</p>
-//           </div>
-//         </div>
-
-//         <div className="contact-form-container">
-//           <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-//             <div className="form-group">
-//               <label>Full Name</label>
-//               <input type="text" placeholder="John Doe" />
-//             </div>
-//             <div className="form-group">
-//               <label>Email Address</label>
-//               <input type="email" placeholder="john@example.com" />
-//             </div>
-//             <div className="form-group">
-//               <label>Message</label>
-//               <textarea placeholder="How can we help you?" rows="5"></textarea>
-//             </div>
-//             <button className="btn-primary" style={{ width: '100%' }}>Send Message</button>
-//           </form>
-//         </div>
-//       </div>
-//       </section>
-//     </div>
-
-//       <style jsx>{`
-//         .contact-hero {
-//           position: relative;
-//           min-height: 100vh;
-//           background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000') center/cover fixed;
-//         }
-//         .overlay {
-//           position: absolute;
-//           top: 0;
-//           left: 0;
-//           width: 100%;
-//           height: 100%;
-//           background: linear-gradient(135deg, rgba(5,5,8,0.9), rgba(10,13,20,0.95));
-//           z-index: 1;
-//         }
-//         .contact-wrapper {
-//           display: flex;
-//           max-width: 1200px;
-//           margin: 0 auto;
-//           gap: 60px;
-//         }
-//         .contact-info {
-//           flex: 1;
-//           display: flex;
-//           flex-direction: column;
-//           gap: 40px;
-//         }
-//         .info-block h3 {
-//           font-size: 1.5rem;
-//           color: var(--primary);
-//           margin-bottom: 10px;
-//         }
-//         .info-block p {
-//           color: var(--text-gray);
-//           font-size: 1.1rem;
-//           line-height: 1.6;
-//         }
-//         .contact-form-container {
-//           flex: 1;
-//           background: rgba(255,255,255,0.02);
-//           padding: 40px;
-//           border-radius: 12px;
-//           border: 1px solid rgba(255,255,255,0.05);
-//         }
-//         .form-group {
-//           margin-bottom: 25px;
-//         }
-//         .form-group label {
-//           display: block;
-//           margin-bottom: 10px;
-//           color: var(--text-white);
-//           font-weight: 600;
-//         }
-//         .form-group input, .form-group textarea {
-//           width: 100%;
-//           padding: 15px;
-//           background: rgba(0,0,0,0.5);
-//           border: 1px solid rgba(255,255,255,0.1);
-//           border-radius: 8px;
-//           color: white;
-//           font-family: inherit;
-//           font-size: 1rem;
-//         }
-//         .form-group input:focus, .form-group textarea:focus {
-//           outline: none;
-//           border-color: var(--primary);
-//         }
-//         @media (max-width: 768px) {
-//           .contact-wrapper { flex-direction: column; }
-//         }
-//       `}</style>
-//     </>
-//   );
-// }
-
-
 
 
 'use client';
@@ -195,9 +69,22 @@ export default function Contact() {
         .contact-hero {
           padding-top: 160px;
           min-height: 100vh;
-          background: var(--bg-start);
+          position: relative;
+          background:
+            radial-gradient(circle at 20% 15%, rgba(196,168,130,0.08), transparent 28%),
+            radial-gradient(circle at 80% 20%, rgba(180,140,80,0.06), transparent 24%),
+            linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 100%);
+        }
+        .contact-hero::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(90deg, rgba(0,0,0,0.12) 0%, transparent 44%, rgba(0,0,0,0.12) 100%);
+          pointer-events: none;
         }
         .contact-inner {
+          position: relative;
+          z-index: 1;
           display: grid;
           grid-template-columns: 1fr 1.2fr;
           gap: 100px;
@@ -217,10 +104,10 @@ export default function Contact() {
         .contact-title em {
           font-family: var(--font-serif);
           font-style: italic;
-          color: var(--primary);
+          color: var(--sand);
         }
         .contact-subtitle {
-          color: var(--text-gray);
+          color: var(--text-white);
           font-size: 1rem;
           font-weight: 300;
           line-height: 1.7;
@@ -231,7 +118,7 @@ export default function Contact() {
           display: flex;
           flex-direction: column;
           gap: 32px;
-          border-top: 1px solid rgba(255,255,255,0.06);
+          border-top: 1px solid rgba(196,168,130,0.14);
           padding-top: 40px;
         }
         .info-block {}
@@ -245,24 +132,25 @@ export default function Contact() {
           margin-bottom: 8px;
         }
         .info-value {
-          color: var(--text-gray);
+          color: var(--text-white);
           font-size: 0.95rem;
           line-height: 1.8;
           font-weight: 300;
         }
 
         .contact-form-wrap {
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.06);
+          background: linear-gradient(180deg, rgba(26,22,16,0.92) 0%, rgba(18,16,13,0.94) 100%);
+          border: 1px solid rgba(196,168,130,0.18);
           padding: 60px;
           position: relative;
+          box-shadow: 0 28px 80px rgba(0,0,0,0.35);
         }
         .contact-form-wrap::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 2px;
-          background: linear-gradient(to right, var(--primary), transparent);
+          background: linear-gradient(to right, var(--sand), transparent);
         }
         .contact-form { display: flex; flex-direction: column; gap: 24px; }
         .form-row {
@@ -276,14 +164,14 @@ export default function Contact() {
           font-weight: 700;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: var(--text-gray);
+          color: var(--sand);
         }
         .form-group input,
         .form-group textarea {
           width: 100%;
           padding: 16px 18px;
-          background: rgba(0,0,0,0.4);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(196,168,130,0.12);
           color: var(--text-white);
           font-family: var(--font-body);
           font-size: 0.9rem;
@@ -294,12 +182,13 @@ export default function Contact() {
         }
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-          color: rgba(122,120,112,0.5);
+          color: rgba(245,239,230,0.34);
         }
         .form-group input:focus,
         .form-group textarea:focus {
-          border-color: rgba(200,245,66,0.4);
-          background: rgba(200,245,66,0.02);
+          border-color: rgba(196,168,130,0.38);
+          background: rgba(196,168,130,0.05);
+          box-shadow: 0 0 0 1px rgba(196,168,130,0.08);
         }
 
         .form-success {
@@ -314,13 +203,13 @@ export default function Contact() {
         }
         .form-success-icon {
           width: 72px; height: 72px;
-          border: 2px solid var(--primary);
+          border: 2px solid var(--sand);
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 2rem;
-          color: var(--primary);
+          color: var(--sand);
           margin: 0 auto;
           line-height: 72px;
           text-align: center;

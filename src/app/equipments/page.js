@@ -115,14 +115,14 @@ export default function Equipment() {
         alignItems: 'flex-end',
         justifyContent: 'center',
         overflow: 'hidden',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200)',
+        backgroundImage: 'linear-gradient(180deg, rgba(5,5,6,0.1), rgba(5,5,6,0.92)), url(https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(5,5,6,0.3) 0%, rgba(5,5,6,0.9) 100%)',
+          background: 'radial-gradient(circle at 50% 35%, rgba(196,168,130,0.08), transparent 38%), linear-gradient(to bottom, rgba(5,5,6,0.18) 0%, rgba(5,5,6,0.92) 100%)',
         }} />
         <div style={{
           position: 'relative',
@@ -135,12 +135,12 @@ export default function Equipment() {
             fontSize: 'clamp(3rem, 10vw, 5rem)',
             fontWeight: 400,
             letterSpacing: '3px',
-            color: '#fff',
+            color: 'var(--text-white)',
             marginBottom: '16px',
           }}>ADVANCED EQUIPMENT</h1>
           <p style={{
             fontSize: '1.1rem',
-            color: '#a0a0a5',
+            color: 'var(--text-gray)',
             fontWeight: 300,
           }}>Precision-engineered machinery for elite performance</p>
         </div>
@@ -154,13 +154,13 @@ export default function Equipment() {
             fontWeight: 700,
             letterSpacing: '5px',
             textTransform: 'uppercase',
-            color: '#C8F542',
+            color: 'var(--sand)',
           }}>Our Arsenal</span>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.5rem, 5vw, 4rem)',
             fontWeight: 400,
-            color: '#fff',
+            color: 'var(--text-white)',
             marginTop: '16px',
           }}>STATE-OF-THE-ART MACHINERY</h2>
         </div>
@@ -179,9 +179,9 @@ export default function Equipment() {
               onClick={() => setActiveCategory(cat.id)}
               style={{
                 padding: '12px 28px',
-                border: `1px solid ${activeCategory === cat.id ? '#C8F542' : 'rgba(200,245,66,0.3)'}`,
-                background: activeCategory === cat.id ? '#C8F542' : 'transparent',
-                color: activeCategory === cat.id ? '#000' : '#a0a0a5',
+                border: `1px solid ${activeCategory === cat.id ? 'var(--sand)' : 'rgba(196,168,130,0.24)'}`,
+                background: activeCategory === cat.id ? 'var(--sand)' : 'rgba(255,255,255,0.02)',
+                color: activeCategory === cat.id ? '#0b0906' : 'var(--text-gray)',
                 fontWeight: 700,
                 letterSpacing: '2px',
                 textTransform: 'uppercase',
@@ -203,8 +203,8 @@ export default function Equipment() {
         }}>
           {filtered.map(item => (
             <div key={item.id} style={{
-              background: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.07)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%)',
+              border: '1px solid rgba(196,168,130,0.1)',
               overflow: 'hidden',
               transition: 'all 0.4s',
             }}>
@@ -219,8 +219,8 @@ export default function Equipment() {
                   position: 'absolute',
                   top: '14px',
                   right: '14px',
-                  background: '#C8F542',
-                  color: '#000',
+                  background: 'rgba(196,168,130,0.92)',
+                  color: '#0b0906',
                   fontSize: '0.65rem',
                   fontWeight: 800,
                   letterSpacing: '2px',
@@ -232,11 +232,11 @@ export default function Equipment() {
                   fontFamily: 'var(--font-display)',
                   fontSize: '1.3rem',
                   fontWeight: 400,
-                  color: '#fff',
+                  color: 'var(--text-white)',
                   marginBottom: '10px',
                 }}>{item.name}</h3>
                 <p style={{
-                  color: '#a0a0a5',
+                  color: 'var(--text-gray)',
                   fontSize: '0.9rem',
                   lineHeight: '1.6',
                 }}>{item.desc}</p>
@@ -250,27 +250,27 @@ export default function Equipment() {
       <section style={{
         textAlign: 'center',
         padding: '80px 40px',
-        background: 'linear-gradient(135deg, rgba(200,245,66,0.08) 0%, rgba(200,245,66,0.03) 100%)',
-        border: '1px solid rgba(200,245,66,0.15)',
+        background: 'linear-gradient(135deg, rgba(196,168,130,0.12) 0%, rgba(180,140,80,0.06) 100%)',
+        border: '1px solid rgba(196,168,130,0.18)',
         margin: '0 6% 100px',
       }}>
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(2rem, 6vw, 3.5rem)',
           fontWeight: 400,
-          color: '#fff',
+          color: 'var(--text-white)',
           marginBottom: '20px',
         }}>Ready to Experience Elite Equipment?</h2>
         <p style={{
           fontSize: '1.1rem',
-          color: '#a0a0a5',
+          color: 'var(--text-gray)',
           marginBottom: '40px',
         }}>Tour our facility and discover the difference premium machinery makes.</p>
         <a href="/contact" style={{
           display: 'inline-block',
           padding: '18px 52px',
-          background: '#C8F542',
-          color: '#000',
+          background: 'var(--sand)',
+          color: '#0b0906',
           fontWeight: 800,
           letterSpacing: '2px',
           textTransform: 'uppercase',
