@@ -16,9 +16,9 @@
   --bg-start:       #12100D;   /* deep warm almost-black */
   --bg-end:         #1C1912;   /* warm dark brown */
   --bg-mid:         #221F19;
-  --text-white:     #F5EFE6;   /* cream, not cold white */
-  --text-gray:      #8A7D6B;   /* warm greige */
-  --text-dim:       #5C5245;   /* deep warm grey */
+  --text-white:     #FFFFFF;   /* brighter primary text for improved contrast */
+  --text-gray:      #d3bb9d;   /* warm greige */
+  --text-dim:       #cfb999;   /* deep warm grey */
 
   --font-display:   'Bebas Neue', sans-serif;
   --font-serif:     'Cormorant Garamond', serif;
@@ -145,7 +145,7 @@ body::before {
 
 .btn-outline {
   background: transparent; color: var(--primary);
-  border: 1px solid rgba(196,168,130,0.4);
+  border: 1px solid rgba(201, 171, 129, 0.4);
   padding: 13px 30px;
   font-family: var(--font-body); font-size: 0.76rem;
   font-weight: 700; text-transform: uppercase; letter-spacing: 2px;

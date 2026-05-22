@@ -1,5 +1,3 @@
-
-
 'use client';
 import { useState } from 'react';
 
@@ -18,7 +16,7 @@ const trainers = [
     name: 'Sarah Jenkins',
     specialty: 'HIIT & Conditioning',
     tag: 'HI',
-    img: 'https://images.unsplash.com/photo-1611564494260-5f21ea5faa64?q=80&w=900',
+    img: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=900',
     bio: 'Former collegiate track athlete. Sarah\'s high-energy sessions are engineered to push cardiovascular limits and maximize metabolic output in minimum time.',
     certifications: ['NASM-CPT', 'ACE-GFI', 'ISSN-SNS'],
     stats: [['98%', 'Satisfaction Rate'], ['3', 'NCAA Programs'], ['Sub-3m', '800m PR']],
@@ -48,7 +46,7 @@ const trainers = [
     name: 'David Martinez',
     specialty: 'Olympic Lifting Coach',
     tag: 'OL',
-    img: 'https://images.unsplash.com/photo-1552941111-3b3d8e7b0a3d?q=80&w=900',
+    img: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=900',
     bio: 'Competitive weightlifter with international podium finishes. David\'s technical precision sessions build explosive power that transfers across every athletic domain.',
     certifications: ['IWCF-L2', 'USAW-L2', 'NASM-CPT'],
     stats: [['15', 'Years Competing'], ['50+', 'Competitive Lifters'], ['Intl', 'Podium Finishes']],
@@ -91,12 +89,14 @@ export default function Trainers() {
           {trainers.map((t, i) => (
             <div
               key={i}
-              className={`trainer-card reveal reveal-delay-${(i % 3) + 1} ${active === i ? 'expanded' : ''}`}
-              onClick={() => setActive(active === i ? null : i)}
-              data-hover="true"
+              className={`trainer-card ${active === i ? 'expanded' : ''}`}
             >
-              {/* Image */}
-              <div className="trainer-card-img" style={{ backgroundImage: `url(${t.img})` }}>
+              {/* Image - click to expand/collapse */}
+              <div 
+                className="trainer-card-img" 
+                style={{ backgroundImage: `url(${t.img})` }}
+                onClick={() => setActive(active === i ? null : i)}
+              >
                 <div className="trainer-card-overlay" />
                 <span className="trainer-card-tag">{t.tag}</span>
                 <div className="trainer-card-name-overlay">
@@ -115,7 +115,7 @@ export default function Trainers() {
                 <p className="trainer-card-bio">{t.bio}</p>
               </div>
 
-              {/* Stats (expanded) */}
+              {/* Stats (expanded - absolute positioned) */}
               <div className={`trainer-card-expanded ${active === i ? 'open' : ''}`}>
                 <div className="trainer-stats">
                   {t.stats.map(([num, label], si) => (
@@ -132,7 +132,7 @@ export default function Trainers() {
               </div>
 
               {/* Toggle hint */}
-              <div className="trainer-toggle">
+              <div className="trainer-toggle" onClick={() => setActive(active === i ? null : i)}>
                 <span>{active === i ? 'Less' : 'More'}</span>
                 <span className="toggle-arrow" style={{ transform: active === i ? 'rotate(180deg)' : 'none' }}>↓</span>
               </div>
@@ -154,12 +154,13 @@ export default function Trainers() {
           position: absolute; inset: 0;
           background:
             url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2000') center 30%/cover;
-          opacity: 0.12;
+          opacity: 0.20;
+          filter: brightness(1.2) contrast(1.05) saturate(1.08);
         }
         .trainers-hero-bg::after {
           content: '';
           position: absolute; inset: 0;
-          background: linear-gradient(to top, var(--bg-start) 40%, transparent);
+          background: linear-gradient(to top, rgba(18,16,13,0.82) 28%, rgba(18,16,13,0.30) 60%, transparent 100%);
         }
         .trainers-hero-content {
           position: relative; z-index: 2;
@@ -205,11 +206,19 @@ export default function Trainers() {
         .trainer-card {
           background: rgba(255,255,255,0.015);
           border: 1px solid rgba(255,255,255,0.05);
-          overflow: hidden;
-          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-          cursor: none;
+          overflow: visible;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          cursor: pointer;
           position: relative;
+          display: flex;
+          flex-direction: column;
+          z-index: 1;
         }
+        
+        .trainer-card.expanded {
+          z-index: 10;
+        }
+        
         .trainer-card::before {
           content: '';
           position: absolute;
@@ -219,7 +228,7 @@ export default function Trainers() {
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.5s ease;
-          z-index: 1;
+          z-index: 2;
         }
         .trainer-card:hover::before,
         .trainer-card.expanded::before { transform: scaleX(1); }
@@ -236,8 +245,9 @@ export default function Trainers() {
           position: relative;
           overflow: hidden;
           transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          cursor: pointer;
         }
-        .trainer-card:hover .trainer-card-img { transform: scale(1.04); }
+        .trainer-card:hover .trainer-card-img { transform: scale(1.02); }
         .trainer-card-overlay {
           position: absolute; inset: 0;
           background: linear-gradient(to bottom, transparent 40%, rgba(5,5,6,0.92));
@@ -250,10 +260,12 @@ export default function Trainers() {
           letter-spacing: 3px;
           color: var(--primary);
           opacity: 0.5;
+          pointer-events: none;
         }
         .trainer-card-name-overlay {
           position: absolute;
           bottom: 24px; left: 28px; right: 28px;
+          pointer-events: none;
         }
         .trainer-card-role {
           display: block;
@@ -275,6 +287,9 @@ export default function Trainers() {
 
         .trainer-card-base {
           padding: 28px 28px 0;
+          position: relative;
+          z-index: 1;
+          background: rgba(255,255,255,0.015);
         }
         .trainer-card-certs {
           display: flex;
@@ -301,17 +316,24 @@ export default function Trainers() {
         }
 
         .trainer-card-expanded {
+          position: static;
+          background: rgba(10, 10, 12, 0.98);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(200,245,66,0.15);
+          border-top: none;
+          padding: 20px 28px;
+          opacity: 0;
           max-height: 0;
           overflow: hidden;
-          transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-          opacity: 0;
-          padding: 0 28px;
+          transition: max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+          z-index: 20;
         }
+        
         .trainer-card-expanded.open {
-          max-height: 300px;
           opacity: 1;
-          padding-bottom: 20px;
+          max-height: 1200px;
         }
+
         .trainer-stats {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -363,6 +385,10 @@ export default function Trainers() {
           text-transform: uppercase;
           color: var(--text-gray);
           transition: color 0.3s;
+          cursor: pointer;
+          position: relative;
+          z-index: 5;
+          background: inherit;
         }
         .trainer-card:hover .trainer-toggle { color: var(--primary); }
         .toggle-arrow {

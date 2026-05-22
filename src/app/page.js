@@ -85,7 +85,7 @@ function Hero() {
 
       {/* ── ATHLETE — z:3 ── */}
       <div ref={athleteRef} className="hero-athlete" aria-hidden="true">
-        <img src={heroManImage.src} alt="" className="hero-athlete-img" />
+        
         <div className="hero-athlete-ground" />
       </div>
 
@@ -122,11 +122,7 @@ function Hero() {
         ))}
       </div>
 
-      {/* ── SCROLL INDICATOR ── */}
-      <div ref={scrollRef} className="scroll-indicator" aria-hidden="true">
-        <span>SCROLL</span>
-        <div className="scroll-line"><div className="scroll-dot" /></div>
-      </div>
+      
 
       <style jsx>{`
         /* ── Shell ── */
@@ -434,7 +430,7 @@ function PremiumSection() {
 function TrainersSection() {
   const trainers = [
     {name:'Alex Sterling',role:'Head Coach & Strength',img:'https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800'},
-    {name:'Sarah Jenkins',role:'HIIT & Conditioning',img:'https://images.unsplash.com/photo-1611564494260-5f21ea5faa64?q=80&w=800'},
+    {name:'Sarah Jenkins',role:'HIIT & Conditioning',img:'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=900'},
     {name:'Mike Chen',role:'Mobility & Yoga',img:'https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=800'},
   ];
   return (

@@ -122,7 +122,8 @@ export default function Equipment() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(circle at 50% 35%, rgba(196,168,130,0.08), transparent 38%), linear-gradient(to bottom, rgba(5,5,6,0.18) 0%, rgba(5,5,6,0.92) 100%)',
+          background: 'radial-gradient(circle at 50% 35%, rgba(196,168,130,0.10), transparent 36%), linear-gradient(to bottom, rgba(5,5,6,0.12) 0%, rgba(5,5,6,0.92) 60%, rgba(0,0,0,0.94) 100%)',
+          mixBlendMode: 'overlay'
         }} />
         <div style={{
           position: 'relative',
@@ -140,7 +141,7 @@ export default function Equipment() {
           }}>ADVANCED EQUIPMENT</h1>
           <p style={{
             fontSize: '1.1rem',
-            color: 'var(--text-gray)',
+            color: 'rgba(245,239,230,0.88)',
             fontWeight: 300,
           }}>Precision-engineered machinery for elite performance</p>
         </div>
@@ -149,7 +150,7 @@ export default function Equipment() {
       {/* Equipment Section */}
       <section style={{ padding: '100px 6%', maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <span style={{
+            <span style={{
             fontSize: '0.72rem',
             fontWeight: 700,
             letterSpacing: '5px',
@@ -179,15 +180,17 @@ export default function Equipment() {
               onClick={() => setActiveCategory(cat.id)}
               style={{
                 padding: '12px 28px',
-                border: `1px solid ${activeCategory === cat.id ? 'var(--sand)' : 'rgba(196,168,130,0.24)'}`,
-                background: activeCategory === cat.id ? 'var(--sand)' : 'rgba(255,255,255,0.02)',
-                color: activeCategory === cat.id ? '#0b0906' : 'var(--text-gray)',
+                border: `1px solid ${activeCategory === cat.id ? 'var(--sand)' : 'rgba(196,168,130,0.18)'}`,
+                background: activeCategory === cat.id ? 'var(--sand)' : 'transparent',
+                color: activeCategory === cat.id ? '#0b0906' : 'rgba(245,239,230,0.76)',
                 fontWeight: 700,
                 letterSpacing: '2px',
                 textTransform: 'uppercase',
                 fontSize: '0.85rem',
                 cursor: 'pointer',
                 transition: 'all 0.3s',
+                boxShadow: activeCategory === cat.id ? '0 10px 30px rgba(196,168,130,0.12)' : 'none',
+                backdropFilter: 'saturate(110%)'
               }}
             >
               {cat.name}
@@ -202,9 +205,9 @@ export default function Equipment() {
           gap: '24px',
         }}>
           {filtered.map(item => (
-            <div key={item.id} style={{
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.015) 100%)',
-              border: '1px solid rgba(196,168,130,0.1)',
+              <div key={item.id} style={{
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.03) 100%)',
+              border: '1px solid rgba(196,168,130,0.08)',
               overflow: 'hidden',
               transition: 'all 0.4s',
             }}>
@@ -219,7 +222,7 @@ export default function Equipment() {
                   position: 'absolute',
                   top: '14px',
                   right: '14px',
-                  background: 'rgba(196,168,130,0.92)',
+                  background: 'rgba(196,168,130,0.96)',
                   color: '#0b0906',
                   fontSize: '0.65rem',
                   fontWeight: 800,
